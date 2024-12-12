@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>City Details</title>
+    <style>
+         * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+  }
+  
+  body {
+    line-height: 1.6;
+    background-color: #f4f4f4;
+    color: #333;
+  }
+  
+  header {
+    background: hsl(0, 0%, 11%);
+    color: #fff;
+    padding-top: 10px;
+  }
+  
+  header h1 {
+    text-align: center;
+  }
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    padding: 16px 32px;
+  }
+  nav ul {
+  list-style: none;
+  text-align: center;
+  list-style-type: none;
+  padding: 8px;
+  display: flex; 
+  justify-content: center; 
+  align-items: center;
+  gap: 10px;
+  }
+  
+  nav ul li {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    margin:  5px;
+    width: 80px; 
+    height: 60px; 
+    border: 1px solid transparent;
+    padding-inline: 8px;
+    padding-block: 4px;
+    transition: all 0.3s ease; 
+    border-radius: 5px;
+  }
+
+  nav ul li:hover {
+   border-color: hsl(0, 0%, 83%);
+   transform: scale(1.15);
+  }
+  
+  nav ul li a {
+    color: #fff;
+    text-decoration: none;
+  }
+
+        .container {
+          margin-left: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            width: 100%;
+            max-width: 600px;
+        }
+        .card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.doctor-info {
+    flex-grow: 1; /* Allow doctor info to take up remaining space */
+}
+
+.button-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.book-now {
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.book-now:hover {
+    background-color: #0056b3;
+}
+        .card h3 {
+            margin: 0 0 10px;
+        }
+        .card p {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+  <header>
+    <div class="navbar">
+      <nav>
+        <h1>NearCare</h1>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="#about">Find Doctors</a></li>
+          <li><a href="loginclient.html">Login /<br> Register</a></li>
+          <li><a href="#contact">Video Consult</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+    <h1>Details for <span id="city-name"></span></h1>
+    <div class="container" id="details-container"></div>
+
+    <script>
+        const cityDetails = {
+            Delhi: [
+                { name: "Dr. Vaishali Sharma Clinic", location: "Pansheel Park", price: 3000, specialty: "Cardiologist" },
+                { name: "Amar Medical Centre", location: "Saket", price: 1200, specialty: "Homoeopath" },
+                { name: "Singhal Spine & Fracture Centre", location: "Rohini", price: 1000, specialty: "Orthopedist" },
+                { name: "Goels Clinic", location: "South Delhi", price: 1500, specialty: "General Surgeon" },
+                { name: "Alive Wellness Clinics", location: "Pansheel Park", price: 2100, specialty: "Dermatologist" },
+                { name: "Multispeciality Dental Clinic", location: "Mayur Vihar Ph-III", price: 400, specialty: "Dentist" }
+            ],
+            Mumbai: [
+                { name: "Hair Science Clinic", location: "Andheri", price: 500, specialty: "Dermatologist" },
+                { name: "Bright 32 Dental Care & Orthodontic Centre", location: "Kandivali East", price: 500, specialty: "Orthodontist, Cosmetic/Aesthetic Dentist, Dentist" },
+                { name: "Goyal Eye Care", location: "Worli", price: 1200, specialty: "Orthodontist" },
+                { name: "Suasth One Step Clinic", location: "Peddar Road", price: 3500, specialty: "Psychologist" },
+                { name: "Parel Hospital", location: "Parel", price: 1200, specialty: "Spine Surgeon, Dermatologist" },
+                { name: "Jawline / Milky Whites Dental Home for Kids", location: "Vileparle West", price: 1000, specialty: "Dentist" }
+            ],
+            Ghaziabad: [
+                { name: "Dr Vishal's Joint Replacement & Sports Injury Centre", location: "Indirapuram", price: 800, specialty: "Orthodontist" },
+                { name: "Varenya Clinic", location: "Vasundhara", price: 600, specialty: "dermatologist" },
+                { name: "Trikaay Homoeopathy", location: "Indirapuram", price: 700, specialty: "Homoeopath" },
+                { name: "ANUGRAHA Urology, Skin, Hair and Laser Clinic", location: "Indirapuram", price: 900, specialty: "Dermatologist, Urologist" },
+                { name: "Gautam Clinic Pvt Ltd", location: "Vaishali", price: 700, specialty: "Ayurveda" },
+                { name: "Snehita Women's Health Clinic", location: "Raj Nagar Extension", price: 500, specialty: "Gynecologist/" }
+            ],
+            Lucknow: [
+                { name: "Dr. C", location: "Andheri", price: 700, specialty: "Orthopedic" },
+                { name: "Dr. D", location: "Bandra", price: 800, specialty: "ENT Specialist" },
+            ],
+            Bangalore: [
+                { name: "Dr. A", location: "Central Delhi", price: 500, specialty: "Cardiologist" },
+                { name: "Dr. B", location: "South Delhi", price: 600, specialty: "Dermatologist" },
+            ],
+            hyderabad: [
+                { name: "Dr. C", location: "Andheri", price: 700, specialty: "Orthopedic" },
+                { name: "Dr. D", location: "Bandra", price: 800, specialty: "ENT Specialist" },
+            ],
+            Kanpur: [
+                { name: "Dr. A", location: "Central Delhi", price: 500, specialty: "Cardiologist" },
+                { name: "Dr. B", location: "South Delhi", price: 600, specialty: "Dermatologist" },
+            ],
+            Jodhpur: [
+                { name: "Dr. C", location: "Andheri", price: 700, specialty: "Orthopedic" },
+                { name: "Dr. D", location: "Bandra", price: 800, specialty: "ENT Specialist" },
+            ],
+            Jaipur: [
+                { name: "Dr. A", location: "Central Delhi", price: 500, specialty: "Cardiologist" },
+                { name: "Dr. B", location: "South Delhi", price: 600, specialty: "Dermatologist" },
+            ],
+            Prayagraj: [
+                { name: "Dr. C", location: "Andheri", price: 700, specialty: "Orthopedic" },
+                { name: "Dr. D", location: "Bandra", price: 800, specialty: "ENT Specialist" },
+            ],
+            Indore: [
+                { name: "Dr. A", location: "Central Delhi", price: 500, specialty: "Cardiologist" },
+                { name: "Dr. B", location: "South Delhi", price: 600, specialty: "Dermatologist" },
+            ],
+            Pune: [
+                { name: "Dr. C", location: "Andheri", price: 700, specialty: "Orthopedic" },
+                { name: "Dr. D", location: "Bandra", price: 800, specialty: "ENT Specialist" },
+            ],
+            Goa: [
+                { name: "Dr. A", location: "Central Delhi", price: 500, specialty: "Cardiologist" },
+                { name: "Dr. B", location: "South Delhi", price: 600, specialty: "Dermatologist" },
+            ],
+            Chennai: [
+                { name: "Dr. C", location: "Andheri", price: 700, specialty: "Orthopedic" },
+                { name: "Dr. D", location: "Bandra", price: 800, specialty: "ENT Specialist" },
+            ],
+            Vellore: [
+                { name: "Dr. A", location: "Central Delhi", price: 500, specialty: "Cardiologist" },
+                { name: "Dr. B", location: "South Delhi", price: 600, specialty: "Dermatologist" },
+            ],
+            Thiruvananthapuram: [
+                { name: "Dr. C", location: "Andheri", price: 700, specialty: "Orthopedic" },
+                { name: "Dr. D", location: "Bandra", price: 800, specialty: "ENT Specialist" },
+            ],
+            Ahmedabad: [
+                { name: "Dr. A", location: "Central Delhi", price: 500, specialty: "Cardiologist" },
+                { name: "Dr. B", location: "South Delhi", price: 600, specialty: "Dermatologist" },
+            ],
+            Kolkata: [
+                { name: "Dr. C", location: "Andheri", price: 700, specialty: "Orthopedic" },
+                { name: "Dr. D", location: "Bandra", price: 800, specialty: "ENT Specialist" },
+            ],
+            Punjab: [
+                { name: "Dr. A", location: "Central Delhi", price: 500, specialty: "Cardiologist" },
+                { name: "Dr. B", location: "South Delhi", price: 600, specialty: "Dermatologist" },
+            ],
+            Nanital: [
+                { name: "Dr. C", location: "Andheri", price: 700, specialty: "Orthopedic" },
+                { name: "Dr. D", location: "Bandra", price: 800, specialty: "ENT Specialist" },
+            ],
+            Shimla: [
+                { name: "Dr. A", location: "Central Delhi", price: 500, specialty: "Cardiologist" },
+                { name: "Dr. B", location: "South Delhi", price: 600, specialty: "Dermatologist" },
+            ],
+            Patna: [
+                { name: "Dr. C", location: "Andheri", price: 700, specialty: "Orthopedic" },
+                { name: "Dr. D", location: "Bandra", price: 800, specialty: "ENT Specialist" },
+            ]
+        };
+
+        const urlParams = new URLSearchParams(window.location.search);
+        let city = urlParams.get('query');
+        let normalizedCity;
+        let cityKey;
+
+        const cityNameElement = document.getElementById('city-name');
+        const detailsContainer = document.getElementById('details-container');
+
+        (function() {
+            if (!city) {
+                cityNameElement.textContent = "Unknown City";
+                detailsContainer.innerHTML = "<p>No details available for this city.</p>";
+                return;
+            }
+
+            normalizedCity = city.trim().toLowerCase();
+            cityKey = Object.keys(cityDetails).find(key => key.toLowerCase() === normalizedCity);
+
+            if (cityKey) {
+                cityNameElement.textContent = cityKey;
+
+                const details = cityDetails[cityKey];
+                if (details && details.length) {
+                    details.forEach((detail) => {
+                        const card = document.createElement('div');
+                        card.className = "card";
+                        card.innerHTML = `
+    <div class="doctor-info">
+        <h3>${detail.name}</h3>
+        <p><strong>Location:</strong> ${detail.location}</p>
+        <p><strong>Price:</strong> ₹${detail.price}</p>
+        <p><strong>Specialty:</strong> ${detail.specialty}</p>
+    </div>
+    <div class="button-container">
+        <button class="book-now">Book Now</button>
+    </div>
+`;
+                        detailsContainer.appendChild(card);
+                    });
+                } else {
+                    detailsContainer.innerHTML = `<p>No doctors are listed for ${cityKey} currently.</p>`;
+                }
+            } else {
+                cityNameElement.textContent = city;
+                detailsContainer.innerHTML = "<p>No details available for this city.</p>";
+            }
+        })();
+
+        console.log('City from query parameter:', city);
+        console.log('Normalized city:', normalizedCity);
+        console.log('City key in cityDetails:', cityKey);
+        console.log('Details for the city:', cityDetails[cityKey]);
+    </script>
+</body>
+</html>
