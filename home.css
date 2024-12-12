@@ -98,20 +98,15 @@ input{
   display: flex;
   justify-content: center;
 }
-#location{
-  
+#location{  
   width: 400px;
   border-radius: 5px;
-  
-  
 }
 
 .row{
   border: 1px solid #000000;
 }
-#input-box:focus{
-  border: 1px solid #000000;
-}
+
 
 .result-box{
   position: absolute;
@@ -138,6 +133,7 @@ input{
 .result-box ul li:hover{
   background: #e9f3ff;
 }
+
 #find-doc{
   margin-left: 40px;
   border-radius: 16px;
@@ -148,7 +144,6 @@ input{
 }
 
 #find-doc:hover {
- 
   box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.05); /* Shadow on hover */
 }
 
