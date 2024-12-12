@@ -43,9 +43,9 @@ document.getElementById('search').onclick = function () {
     }
 }
 function myFunction(x) {
-    document.getElementById("row").style.borderBlockColor = "#0066ff";
+    document.getElementById("location").style.borderColor = "#0066ff";
 }
 
 function revertBack(){
-    document.getElementById("row").style.borderBlockColor = "black";
+    document.getElementById("location").style.borderColor = "black";
 }
