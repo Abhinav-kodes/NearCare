@@ -124,19 +124,7 @@ input{
 .result-box ul li:hover{
   background: #e9f3ff;
 }
-#find-doc{
-  margin-left: 40px;
-  border-radius: 16px;
-  height: 40px;
-  width: 90px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
 
-#find-doc:hover {
- 
-  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.05); /* Shadow on hover */
-}
 
 #search .fa-solid:hover{
   color: hsl(0, 100%, 50%);
