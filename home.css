@@ -101,13 +101,8 @@ input{
 #location{  
   width: 400px;
   border-radius: 5px;
-}
-
-.row{
   border: 1px solid #000000;
 }
-
-
 .result-box{
   position: absolute;
   z-index: 1;
