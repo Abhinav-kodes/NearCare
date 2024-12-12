@@ -90,15 +90,29 @@ input{
   font-size: 22px;
   cursor: pointer;
 }
+
 ::placeholder{
   color: #555;
 }
+#location-container{
+  display: flex;
+  justify-content: center;
+}
 #location{
-  margin-left: 10px;
+  
   width: 400px;
   border-radius: 5px;
-  border: 1px solid #ccc;
+  
+  
 }
+
+.row{
+  border: 1px solid #000000;
+}
+#input-box:focus{
+  border: 1px solid #000000;
+}
+
 .result-box{
   position: absolute;
   z-index: 1;
@@ -124,7 +138,19 @@ input{
 .result-box ul li:hover{
   background: #e9f3ff;
 }
+#find-doc{
+  margin-left: 40px;
+  border-radius: 16px;
+  height: 40px;
+  width: 90px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
 
+#find-doc:hover {
+ 
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.05); /* Shadow on hover */
+}
 
 #search .fa-solid:hover{
   color: hsl(0, 100%, 50%);
