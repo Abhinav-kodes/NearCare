@@ -1,6 +1,6 @@
 body{
     height: 100vh; 
-    background: linear-gradient(270deg, hsl(180, 48%, 41%) 0%, hsl(142, 55%, 36%) 100%); 
+background: radial-gradient(circle, rgba(103,103,103,1) 0%, rgba(0,0,0,1) 100%); 
 }
 
 .wrapper {
@@ -12,7 +12,8 @@ body{
 }
 
 .wrapper-text{
-    background: linear-gradient(270deg, hsl(180, 62%, 47%) 15%, hsl(142, 68%, 43%) 100%);
+   
+background: radial-gradient(circle, rgba(103,103,103,1) 0%, rgba(0,0,0,1) 100%);
     height: 45px;
     width: 150px;
     margin: 0 auto 20px;
@@ -27,7 +28,7 @@ body{
 .login_area{
     margin-top: 20px;
     border-radius: 10px; 
-    background: linear-gradient(270deg, hsl(180, 62%, 47%) 15%, hsl(142, 68%, 43%) 100%);
+background: radial-gradient(circle, rgba(103,103,103,1) 0%, rgba(0,0,0,1) 100%);
     display: flex;
     justify-content: center;
     align-items: top; 
