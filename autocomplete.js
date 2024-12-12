@@ -33,15 +33,19 @@ function selectInput(list){
     resultBox.innerHTML = '';
 }
 
-// Redirect functionality
 document.getElementById('search').onclick = function () {
     const city = inputBox.value.trim();
     if (city) {
-      // Save the selected city in localStorage
       localStorage.setItem('searchText', city);
-      // Redirect to page2.html with city as a query parameter
       window.location.href = `finddoc.html?query=${encodeURIComponent(city)}`;
     } else {
       alert("Please select or enter a valid city!");
     }
-};
+}
+function myFunction(x) {
+    document.getElementById("row").style.borderBlockColor = "#0066ff";
+}
+
+function revertBack(){
+    document.getElementById("row").style.borderBlockColor = "black";
+}
