@@ -1,2 +1,2 @@
 # NearCare
-A webapp to to book appointments of local doctor clinics
+A webapp to book appointments of local doctor clinics
