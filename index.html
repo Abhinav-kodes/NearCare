@@ -15,7 +15,6 @@
         <h1>NearCare</h1>
         <ul>
           <li><a href="index.html">Home</a></li>
-          <li><a href="">Find Doctors</a></li>
           <li><a href="loginclient.html">Login /<br> Register</a></li>
           <li><a href="">Video Consult</a></li>
         </ul>
@@ -27,8 +26,8 @@
     <br>
     <div id="location-container">
     <div id="location">
-      <div class= "row">
-        <input type="text" id="input-box" placeholder="Location search" autocomplete="off">
+      <div class= "row" id="row">
+        <input type="text" id="input-box" placeholder="Location search" autocomplete="off" onfocus="myFunction(this)" onblur="revertBack()">
         <button id="search"><i class="fa-solid fa-house-medical"></i></button>
     </div>
       <div class="result-box">
@@ -85,7 +84,6 @@
       </div>
     </section>
   </main>
-
   <footer>
     <p>&copy; 2024 Local Doctor Finder. All Rights Reserved.</p>
   </footer>
